@@ -71,7 +71,7 @@
       BIDEGORRIS_LIST.each( function( bidegorriPair) {
         var code = bidegorriPair[ 0],
             name = bidegorriPair[ 1],
-            gmlPath = "T_" + code + ".gml",
+            gmlPath = "gml/T_" + code + ".gml",
             gmlLayer = new OpenLayers.Layer.GML( "GML " + code, gmlPath);
 
         window.b5map.addLayer( gmlLayer);
