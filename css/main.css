@@ -115,11 +115,7 @@ body{
 	padding: 0;
 }
 
-
-.bidegorri-logo{
-	padding: 0;
-}
-
+	
 .credits{	
 	/* Fallback for web browsers that don't support RGBa */
 	background-color: rgb(0, 0, 0);
