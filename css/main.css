@@ -115,28 +115,42 @@ body{
 	padding: 0;
 }
 
-.visuallyhidden {
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute !important;
-}
 
 .bidegorri-logo{
-	margin: 35px 0 0 60px;
-	left: 130px;
 	padding: 0;
+}
+
+.credits{	
+	/* Fallback for web browsers that don't support RGBa */
+	background-color: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background-color: rgba(255, 255, 255, 0.6);
+	/* For IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+	border-bottom: 3px solid #555;
+	border-top: 3px solid #555;
+	color: #666;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	margin: 45px 0 0 60px;
 	position: absolute;
+	padding: 0 20px;
+	right: 20px;
+	width: 300px;
 	z-index: 100;
 }
 
-.credits{
-	color: #333;
-	font-family: helvetica, arial, sans-serif;
-	font-size: 12px;
-	text-align: center;
-}
 
 .credits a{
 	color: #990000;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.visuallyhidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
 }
