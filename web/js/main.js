@@ -69,7 +69,8 @@
 
     // -- OSM ---------------------------------------------------------------------
     function addOSMBidegorris() {
-      var gmlPath = "gml_osm/donostialdea.gml",
+      var //gmlPath = "gml_osm/donostialdea.gml",
+          gmlPath = "gml_osm/bardulia.gml",
           gmlLayer = new OpenLayers.Layer.GML( "GML OSM", gmlPath, {
                                                 projection: new OpenLayers.Projection( "EPSG:4326")
                      });
