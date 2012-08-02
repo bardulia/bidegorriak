@@ -1,5 +1,6 @@
 ( function() {
 
+    // -- B5M ---------------------------------------------------------------------
     var BIDEGORRIS_LIST = [
       [ "0200", "BERGARA - S. PRUDENCIO (Bergara)"],
       [ "0201", "SORALUZE PLACENCIA DE LAS ARMAS - BERGARA"],
@@ -55,7 +56,28 @@
       [ "0252", "RED DE ANDOAIN"]
     ];
 
-    // -----------------------------------------------------------------------
+    function addB5MBidegorris() {
+      BIDEGORRIS_LIST.each( function( bidegorriPair) {
+        var code = bidegorriPair[ 0],
+            name = bidegorriPair[ 1],
+            gmlPath = "gml_b5m/T_" + code + ".gml",
+            gmlLayer = new OpenLayers.Layer.GML( "GML " + code, gmlPath);
+
+        window.b5map.addLayer( gmlLayer);
+      });
+    }
+
+    // -- OSM ---------------------------------------------------------------------
+    function addOSMBidegorris() {
+      var gmlPath = "gml_osm/donostialdea.gml",
+          gmlLayer = new OpenLayers.Layer.GML( "GML OSM", gmlPath, {
+                                                projection: new OpenLayers.Projection( "EPSG:4326")
+                     });
+
+      window.b5map.addLayer( gmlLayer);
+    }
+
+    // ----------------------------------------------------------------------------
     function createMap() {
       window.b5map = new OpenLayersExt.Map( "bidegorri-map", {
         openLayersExt: {
@@ -64,17 +86,6 @@
             zoom: 10
           }
         }
-      });
-    }
-
-    function addBidegorris() {
-      BIDEGORRIS_LIST.each( function( bidegorriPair) {
-        var code = bidegorriPair[ 0],
-            name = bidegorriPair[ 1],
-            gmlPath = "gml/T_" + code + ".gml",
-            gmlLayer = new OpenLayers.Layer.GML( "GML " + code, gmlPath);
-
-        window.b5map.addLayer( gmlLayer);
       });
     }
 
@@ -92,11 +103,12 @@
       });
     }
 
-    // -----------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
     Event.observe( window, "load", function() {
       createMap();
       disableTools();
-      addBidegorris();
+      //addB5MBidegorris();
+      addOSMBidegorris();
     });
 })();
 
