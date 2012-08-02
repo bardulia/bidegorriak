@@ -1,0 +1,21 @@
+- Info URLs
+
+http://wiki.openstreetmap.org/wiki/Developer_FAQ#I.27ve_been_blocked_from_the_API_for_downloading_too_much._Now_what.3F
+http://wiki.openstreetmap.org/wiki/XAPI
+
+- Bajar directamente desde API
+
+http://www.informationfreeway.org/api/0.6/way[highway=cycleway][bbox=-2.7485951318717055,42.940523046570405,-1.6499623194155684,43.39126032436881]
+
+- Fichero OSM de España
+
+  http://download.geofabrik.de/osm/europe/spain.osm.bz2 (-> http://download.geofabrik.de/osm/)
+
+- Filtrar por MBR y por tag highway=cycleway
+  
+cat ~/Downloads/spain.osm | osmosis/bin/osmosis --rx - --bb left=-2.7485951318717055 bottom=42.940523046570405 right=-1.6499623194155684 top=43.39126032436881 --way-key-value keyValueList="highway.cycleway" --log-progress --wx bardulia.osm
+
+- Pasar a GML
+
+cat bardulia.osm | ./osm2gml.py > bardulia.gml
+
