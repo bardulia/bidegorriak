@@ -2,6 +2,7 @@
 
 http://wiki.openstreetmap.org/wiki/Developer_FAQ#I.27ve_been_blocked_from_the_API_for_downloading_too_much._Now_what.3F
 http://wiki.openstreetmap.org/wiki/XAPI
+http://www.donostiamovilidad.com/bicicletas/red-de-bidegorris/
 
 - Bajar directamente desde API
 
