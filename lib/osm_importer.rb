@@ -90,9 +90,10 @@ end
 def extract_bardulia_bidegorris
   action_message( "Extrayendo bidegorris de #{OSM_BARDULIA_FILE}")
   if !File.exists?( OSM_BARDULIA_BIDEGORRIS_FILE) || ask( "Fichero #{OSM_BARDULIA_BIDEGORRIS_FILE} ya existe, lo sobreescribo?")
-    execute_command( "osmosis/bin/osmosis --rx #{OSM_BARDULIA_FILE} " +
-                     "--way-key-value keyValueList=\"highway.cycleway\" " + 
-                     "--wx #{OSM_BARDULIA_BIDEGORRIS_FILE}")
+    execute_command( "osmosis/bin/osmosis -quiet " +
+                     "--read-xml #{OSM_BARDULIA_FILE} " +
+                     "--way-key-value keyValueList=\"highway.cycleway,bicycle.yes\" " + 
+                     "--write-xml #{OSM_BARDULIA_BIDEGORRIS_FILE}")
   end
 end
 
