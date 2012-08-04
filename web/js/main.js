@@ -84,7 +84,7 @@
     }
 
     function addGML( title, path, options) {
-      var gmlLayer = new OpenLayers.Layer.GML( title, path, options);
+      var gmlLayer = new OpenLayers.Layer.GML( "GML " + title, path, options);
 
       window.b5map.addLayer( gmlLayer);
     }
@@ -112,9 +112,9 @@
       createMap();
       disableTools();
       addOSMBidegorris();
+      addB5MBidegorris();
 
       if( isLocalMode()) {
-        //addB5MBidegorris();
         window.b5map.addControl( new OpenLayers.Control.LayerSwitcher());
       }
     });
