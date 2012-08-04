@@ -68,7 +68,7 @@
 
     // -- OSM ---------------------------------------------------------------------
     function addOSMBidegorris() {
-      addGML( "OSM", "gml_osm/bardulia.gml", { projection: new OpenLayers.Projection( "EPSG:4326") });
+      addGML( "OSM", "gml_osm/bardulia-bidegorriak.gml", { projection: new OpenLayers.Projection( "EPSG:4326") });
     }
 
     // ----------------------------------------------------------------------------
@@ -113,12 +113,10 @@
       disableTools();
       addOSMBidegorris();
 
-      /*
       if( isLocalMode()) {
-        addB5MBidegorris();
+        //addB5MBidegorris();
         window.b5map.addControl( new OpenLayers.Control.LayerSwitcher());
       }
-      */
     });
 })();
 
