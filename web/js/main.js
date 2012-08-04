@@ -104,7 +104,8 @@
     }
 
     function isLocalMode() {
-      return window.location.protocol == "file:";
+      return window.location.protocol == "file:" ||
+             window.location.hostname == "localhost";
     }
 
     // ----------------------------------------------------------------------------
