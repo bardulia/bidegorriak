@@ -60,22 +60,15 @@
       BIDEGORRIS_LIST.each( function( bidegorriPair) {
         var code = bidegorriPair[ 0],
             name = bidegorriPair[ 1],
-            gmlPath = "gml_b5m/T_" + code + ".gml",
-            gmlLayer = new OpenLayers.Layer.GML( "GML " + code, gmlPath);
+            gmlPath = "gml_b5m/T_" + code + ".gml";
 
-        window.b5map.addLayer( gmlLayer);
+        addGML( "B5M - " + name, gmlPath);
       });
     }
 
     // -- OSM ---------------------------------------------------------------------
     function addOSMBidegorris() {
-      var //gmlPath = "gml_osm/donostialdea.gml",
-          gmlPath = "gml_osm/bardulia.gml",
-          gmlLayer = new OpenLayers.Layer.GML( "GML OSM", gmlPath, {
-                                                projection: new OpenLayers.Projection( "EPSG:4326")
-                     });
-
-      window.b5map.addLayer( gmlLayer);
+      addGML( "OSM", "gml_osm/bardulia.gml", { projection: new OpenLayers.Projection( "EPSG:4326") });
     }
 
     // ----------------------------------------------------------------------------
@@ -88,6 +81,12 @@
           }
         }
       });
+    }
+
+    function addGML( title, path, options) {
+      var gmlLayer = new OpenLayers.Layer.GML( title, path, options);
+
+      window.b5map.addLayer( gmlLayer);
     }
 
     function disableTools() {
@@ -104,12 +103,22 @@
       });
     }
 
+    function isLocalMode() {
+      return window.location.protocol == "file:";
+    }
+
     // ----------------------------------------------------------------------------
     Event.observe( window, "load", function() {
       createMap();
       disableTools();
-      //addB5MBidegorris();
       addOSMBidegorris();
+
+      /*
+      if( isLocalMode()) {
+        addB5MBidegorris();
+        window.b5map.addControl( new OpenLayers.Control.LayerSwitcher());
+      }
+      */
     });
 })();
 
