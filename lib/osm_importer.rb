@@ -79,6 +79,7 @@ def download_and_uncompress_full_osm
 end
 
 def extract_bardulia
+  action_message( "Extrayendo Bardulia de #{OSM_FULL_FILE}")
   if !File.exists?( OSM_BARDULIA_FILE) || ask( "Fichero #{OSM_BARDULIA_FILE} ya existe, lo sobreescribo?")
     execute_command( "osmosis/bin/osmosis --rx #{OSM_FULL_FILE} " +
                      "--bb left=#{BARDULIA_MBR[ :lon_min]} bottom=#{BARDULIA_MBR[ :lat_min]} right=#{BARDULIA_MBR[ :lon_max]} top=#{BARDULIA_MBR[ :lat_max]} " +
@@ -87,6 +88,7 @@ def extract_bardulia
 end
 
 def extract_bardulia_bidegorris
+  action_message( "Extrayendo bidegorris de #{OSM_BARDULIA_FILE}")
   if !File.exists?( OSM_BARDULIA_BIDEGORRIS_FILE) || ask( "Fichero #{OSM_BARDULIA_BIDEGORRIS_FILE} ya existe, lo sobreescribo?")
     execute_command( "osmosis/bin/osmosis --rx #{OSM_BARDULIA_FILE} " +
                      "--way-key-value keyValueList=\"highway.cycleway\" " + 
