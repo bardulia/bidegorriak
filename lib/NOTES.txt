@@ -20,3 +20,9 @@ cat ~/Downloads/spain.osm | osmosis/bin/osmosis --rx - --bb left=-2.748595131871
 
 cat bardulia.osm | ./osm2gml.py > bardulia.gml
 
+- Notas sobre tipos de bidegorris en OSM
+
+ - hay ways con highway=cicleway que parece que cubren todos los "caminos de bicis"
+ - hay un relation llamado "Bidegorri" al que pertenecen todos los cicleways que son oficialmente "bidegorris" ¿?
+ - hay algunos ways con highway=footpah que tienen "Bicycles permited = true", incluso que pertenecen a la relación "Bidegorri" (por ejemplo en Zubiaurre Pasalekua)
+

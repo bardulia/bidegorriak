@@ -74,16 +74,17 @@ def download_and_uncompress_full_osm
 
   action_message( "Descomprimiendo #{osm_compressed_file}")
   if !File.exists?( OSM_FULL_FILE) || ask( "Fichero #{OSM_FULL_FILE} ya existe, lo sobreescribo?")
-    execute_command( "bunzip2 --verbose --force --keep #{osm_compressed_file}")
+    execute_command( "bunzip2 --force --keep #{osm_compressed_file}")
   end
 end
 
 def extract_bardulia
   action_message( "Extrayendo Bardulia de #{OSM_FULL_FILE}")
   if !File.exists?( OSM_BARDULIA_FILE) || ask( "Fichero #{OSM_BARDULIA_FILE} ya existe, lo sobreescribo?")
-    execute_command( "osmosis/bin/osmosis --rx #{OSM_FULL_FILE} " +
-                     "--bb left=#{BARDULIA_MBR[ :lon_min]} bottom=#{BARDULIA_MBR[ :lat_min]} right=#{BARDULIA_MBR[ :lon_max]} top=#{BARDULIA_MBR[ :lat_max]} " +
-                     "--wx #{OSM_BARDULIA_FILE}")
+    execute_command( "osmosis/bin/osmosis -quiet " + 
+                     "--read-xml #{OSM_FULL_FILE} " +
+                     "--bounding-box left=#{BARDULIA_MBR[ :lon_min]} bottom=#{BARDULIA_MBR[ :lat_min]} right=#{BARDULIA_MBR[ :lon_max]} top=#{BARDULIA_MBR[ :lat_max]} " +
+                     "--write-xml #{OSM_BARDULIA_FILE}")
   end
 end
 
@@ -98,6 +99,7 @@ def extract_bardulia_bidegorris
 end
 
 def convert_bardulia_bidegorris_to_gml
+  action_message( "Convirtiendo bidegorris a GML desde #{OSM_BARDULIA_BIDEGORRIS_FILE}")
   execute_command( "cat #{OSM_BARDULIA_BIDEGORRIS_FILE} | ./osm2gml.py > ../web/gml_osm/bardulia-bidegorriak.gml")
 end
 
