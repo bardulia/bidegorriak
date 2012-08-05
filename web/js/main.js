@@ -31,7 +31,7 @@
       [ "0226", "AZKOITIA - ZUMARRAGA - URRETXU - LEGAZPI"],
       [ "0227", "S. MARTIN (Ataun) - ERGOIENA (Ataun)"],
       [ "0228", "ANDOAIN - NAVARRA"],
-      [ "0229", "RED DE DONOSTIA - SAN SEBASTIAN"],
+      //[ "0229", "RED DE DONOSTIA - SAN SEBASTIAN"],   // OSM tiene mejores datos
       [ "0230", "RED DE HONDARRIBIA"],
       [ "0231", "RED DE ORIO"],
       [ "0232", "EMBALSE DE ARRIARAN"],
