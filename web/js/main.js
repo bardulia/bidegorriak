@@ -122,6 +122,7 @@
         //console.log( "resizeHandler, newHeight = ", newHeight);
 
         window.b5map.resize( undefined, newHeight);
+        window.b5map.updateSize();
       }
 
       ( function() {
