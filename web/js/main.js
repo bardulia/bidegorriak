@@ -108,12 +108,35 @@
              window.location.hostname == "localhost";
     }
 
+    function initResizeHandler() {
+
+      function resizeHandler() {
+        var VERTICAL_ADJUST = 0,
+            map = $$0( "#b5map-mapArea"),
+            viewPortHeight = document.viewport.getHeight(),
+            bodyHeight = $$0( "body").getHeight(),
+            diffHeight = viewPortHeight - bodyHeight,
+            mapHeight = map.getHeight(),
+            newHeight = mapHeight + diffHeight - VERTICAL_ADJUST;
+
+        //console.log( "resizeHandler, newHeight = ", newHeight);
+
+        window.b5map.resize( undefined, newHeight);
+      }
+
+      ( function() {
+          Event.observe( window, "resize", resizeHandler);
+          resizeHandler();
+      }).delay( 1);   // esperamos un tiempo para que la página se estabilice
+    }
+
     // ----------------------------------------------------------------------------
     Event.observe( window, "load", function() {
       createMap();
       disableTools();
       addOSMBidegorris();
       addB5MBidegorris();
+      initResizeHandler();
 
       if( isLocalMode()) {
         window.b5map.addControl( new OpenLayers.Control.LayerSwitcher());
