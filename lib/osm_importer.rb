@@ -59,6 +59,10 @@ def ask( message)
   end
 end
 
+def overwrite_file?( file_name)
+  return ( !File.exists?( file_name)) || ask( "El fichero \"#{file_name}\" ya existe, lo sobreescribo?")
+end
+
 # -------------------------------------------------------------------------------------------------------------------------
 OSM_FULL_FILE = "tmp/spain.osm"
 OSM_BARDULIA_FILE = "tmp/bardulia.osm"
@@ -68,19 +72,19 @@ def download_and_uncompress_full_osm
   osm_compressed_file = "#{OSM_FULL_FILE}.bz2"
 
   action_message( "Descargando #{osm_compressed_file}")
-  if !File.exists?( osm_compressed_file) || ask( "Fichero #{osm_compressed_file} ya existe, lo vuelvo a descargar?")
+  if overwrite_file?( osm_compressed_file)
     execute_command( "curl -# -o #{osm_compressed_file} http://download.geofabrik.de/osm/europe/spain.osm.bz2")
   end
 
   action_message( "Descomprimiendo #{osm_compressed_file}")
-  if !File.exists?( OSM_FULL_FILE) || ask( "Fichero #{OSM_FULL_FILE} ya existe, lo sobreescribo?")
+  if overwrite_file?( OSM_FULL_FILE)
     execute_command( "bunzip2 --force --keep #{osm_compressed_file}")
   end
 end
 
 def extract_bardulia
   action_message( "Extrayendo Bardulia de #{OSM_FULL_FILE}")
-  if !File.exists?( OSM_BARDULIA_FILE) || ask( "Fichero #{OSM_BARDULIA_FILE} ya existe, lo sobreescribo?")
+  if overwrite_file?( OSM_BARDULIA_FILE)
     execute_command( "osmosis/bin/osmosis -quiet " + 
                      "--read-xml #{OSM_FULL_FILE} " +
                      "--bounding-box left=#{BARDULIA_MBR[ :lon_min]} bottom=#{BARDULIA_MBR[ :lat_min]} right=#{BARDULIA_MBR[ :lon_max]} top=#{BARDULIA_MBR[ :lat_max]} " +
@@ -90,7 +94,7 @@ end
 
 def extract_bardulia_bidegorris
   action_message( "Extrayendo bidegorris de #{OSM_BARDULIA_FILE}")
-  if !File.exists?( OSM_BARDULIA_BIDEGORRIS_FILE) || ask( "Fichero #{OSM_BARDULIA_BIDEGORRIS_FILE} ya existe, lo sobreescribo?")
+  if overwrite_file?( OSM_BARDULIA_BIDEGORRIS_FILE)
     execute_command( "osmosis/bin/osmosis -quiet " +
                      "--read-xml #{OSM_BARDULIA_FILE} " +
                      "--way-key-value keyValueList=\"highway.cycleway,bicycle.yes\" " + 
