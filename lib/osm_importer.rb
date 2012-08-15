@@ -15,7 +15,7 @@ def execute_command( cmd)
   line = "-"*80
 
   puts line
-  action_message( cmd)
+  puts_message( cmd)
 
   system( cmd)
   if $? != 0
