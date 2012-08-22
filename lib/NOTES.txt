@@ -26,3 +26,7 @@ cat bardulia.osm | ./osm2gml.py > bardulia.gml
  - hay un relation llamado "Bidegorri" al que pertenecen todos los cicleways que son oficialmente "bidegorris" ¿?
  - hay algunos ways con highway=footpah que tienen "Bicycles permited = true", incluso que pertenecen a la relación "Bidegorri" (por ejemplo en Zubiaurre Pasalekua)
 
+- Proxys PHP
+
+  - https://github.com/eslachance/php-transparent-proxy
+  - https://github.com/cowboy/php-simple-proxy/
