@@ -1,2 +1,2 @@
-ProxyPass /api/ http://b5m.gipuzkoa.net/api/
+#ProxyPass /api/ http://b5m.gipuzkoa.net/api/
 #ProxyPassReverse /api/ http://b5m.gipuzkoa.net/api/
