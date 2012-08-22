@@ -146,6 +146,10 @@ body{
 	text-decoration: none;
 }
 
+.small-credit{
+	font-size: 12px;
+}
+
 .visuallyhidden {
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute !important;
