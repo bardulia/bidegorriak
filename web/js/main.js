@@ -89,19 +89,20 @@
       window.b5map.addLayer( gmlLayer);
     }
 
-    function disableTools() {
-      [ ".whatIsThisItemActive", ".whatIsThisItemInactive",
-        ".b5map-drawPanel-controlItemInactive", ".b5map-drawPanel-controlItemActive",
-        "#b5map-pictometry"
-      ].each( function( selector) {
+    // herramientas que necesitan de proxy
+    //function disableTools() {
+    //  [ ".whatIsThisItemActive", ".whatIsThisItemInactive",
+    //    ".b5map-drawPanel-controlItemInactive", ".b5map-drawPanel-controlItemActive",
+    //    "#b5map-pictometry"
+    //  ].each( function( selector) {
 
-        var e = $$0( selector);
+    //    var e = $$0( selector);
 
-        if( e) {
-          e.hide();
-        }
-      });
-    }
+    //    if( e) {
+    //      e.hide();
+    //    }
+    //  });
+    //}
 
     function isLocalMode() {
       return window.location.protocol == "file:" ||
@@ -134,7 +135,7 @@
     // ----------------------------------------------------------------------------
     Event.observe( window, "load", function() {
       createMap();
-      disableTools();
+      //disableTools();
       addOSMBidegorris();
       addB5MBidegorris();
       initResizeHandler();
