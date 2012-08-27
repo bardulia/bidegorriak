@@ -8,10 +8,11 @@
 /--------------------------------------------------------------*/
 
 // Destination URL: Where this proxy leads to.
-$destinationURL = 'http://www.otherdomain.com/backend.php';
+$destinationURL = 'http://b5m.gipuzkoa.net/' . $_GET['path'];
+//die( 'destinationURL = ' . $destinationURL);
 
 // The only domain from which requests are authorized.
-$RequestDomain = 'mydomain.com';
+//$RequestDomain = 'bardulia.org';
 
 // That's it for configuration!
 
@@ -46,7 +47,8 @@ $host = $matches[1];
 preg_match('/[^.]+\.[^.]+$/', $host, $matches);
 $domainName = "{$matches[0]}";
 
-if($domainName == $RequestDomain) {
+//if($domainName == $RequestDomain) {
+if( true) {
 
     $method = $_SERVER['REQUEST_METHOD'];
     $response = proxy_request($destinationURL, ($method == "GET" ? $_GET : $_POST), $method);
