@@ -96,7 +96,7 @@ function proxy_request($url, $data, $method) {
         fputs($fp, "Host: $host\r\n");
         
         fputs($fp, "X-Forwarded-For: $ip\r\n");
-        fputs($fp, "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n"); 
+        //fputs($fp, "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n"); 
         
            $requestHeaders = apache_request_headers();
         while ((list($header, $value) = each($requestHeaders))) {
