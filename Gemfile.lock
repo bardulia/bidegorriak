@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     activesupport (3.2.12)
       i18n (~> 0.6)
@@ -97,4 +97,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  middleman (~> 3.0)
+  middleman (~> 3.0.12)
