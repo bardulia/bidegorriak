@@ -1,13 +1,11 @@
-# Middleman on Heroku
-### precompiled and served statically
+Gipuzkoako Bidegorriak
+===========
 
-## Usage
+Honakoa Gipuzkoako bidegorriak erakusten dituen mapa bat da.
+Libre zara kodea erabiltzeko, eta batez ere eskertuko genizuke falta diren bidegorrien GMLak gehituko bazenitu.
+Hortarako ikusi nolakoa den beste GML-en egitura.
 
-    $ git clone http://github.com/indirect/middleman-heroku-static-app.git mysite && cd mysite
-    $ bundle install && bundle exec middleman init .
-    $ git add . && git commit -m "brand new site"
-    $ heroku create && git push heroku master
+Erabilgarria izatea espero dugu.
+Eta disfrutatu gure lurraldean zehar bizikletan ibiliz. :)
 
-The only expectation is that `middleman build` will generate your site into `./build`. That's where Rack::TryStatic will look.
 
-You can customize the 404 page that's served if TryStatic can't find a file by editing `source/404.html.erb`.
