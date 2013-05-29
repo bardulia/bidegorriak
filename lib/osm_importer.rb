@@ -73,7 +73,8 @@ def download_and_uncompress_full_osm
 
   action_message( "Descargando #{osm_compressed_file}")
   if overwrite_file?( osm_compressed_file)
-    execute_command( "curl -# -o #{osm_compressed_file} http://download.geofabrik.de/osm/europe/spain.osm.bz2")
+    #execute_command( "curl -# -o #{osm_compressed_file} http://download.geofabrik.de/osm/europe/spain.osm.bz2")
+    execute_command( "curl -# -o #{osm_compressed_file} http://download.geofabrik.de/europe/spain-latest.osm.bz2")
   end
 
   action_message( "Descomprimiendo #{osm_compressed_file}")
