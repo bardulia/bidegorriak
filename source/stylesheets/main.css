@@ -109,45 +109,39 @@ textarea {
 
 /* @end */
 
-body{
+body {
 	background-color: #eee;
 	margin: 0;
 	padding: 1em;
 }
 
+.logo {
+  margin-bottom: 1em;
+  width: 200px;
+}
+
+.logo img{
+  width: 100%;
+}
+
+#bidegorri-map {
+  height: 700px;
+  width: 100%;
+}
 	
-.credits{	
-	/* Fallback for web browsers that don't support RGBa */
-	background-color: rgb(0, 0, 0);
-	/* RGBa with 0.6 opacity */
-	background-color: rgba(255, 255, 255, 0.6);
-	/* For IE 5.5 - 7*/
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
-	/* For IE 8*/
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+.credits {	
 	border-bottom: 3px solid #555;
 	border-top: 3px solid #555;
 	color: #666;
 	font-family: helvetica, arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.5em;
-	margin: 45px 0 0 60px;
-	position: absolute;
+	font-size: 12px;
 	padding: 0 20px;
-	right: 40px;
-	width: 300px;
-	z-index: 100;
 }
 
-
-.credits a{
+a {
 	color: #990000;
 	font-weight: bold;
 	text-decoration: none;
-}
-
-.small-credit{
-	font-size: 12px;
 }
 
 .visuallyhidden {
