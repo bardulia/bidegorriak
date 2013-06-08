@@ -108,37 +108,32 @@ textarea {
 }
 
 /* @end */
+body{
+  background-color: #eee;
+}
 
-body {
-	background-color: #eee;
-	margin: 0;
-	padding: 1em;
+[role="banner"],
+#container,
+[role="contentinfo"] {
+  margin: 0 auto;
+  max-width: 60em;/* 960px */
 }
 
 .logo {
-  margin-bottom: 1em;
-  width: 200px;
+  width: 25%;
 }
 
-.logo img{
-  width: 100%;
-}
-
-#bidegorri-map {
-  height: 700px;
+#container{
   width: 100%;
 }
 	
-.credits {	
-	border-bottom: 3px solid #555;
-	border-top: 3px solid #555;
+[role="contentinfo"] p{	
 	color: #666;
 	font-family: helvetica, arial, sans-serif;
-	font-size: 12px;
-	padding: 0 20px;
+  font-size: .7em;
 }
 
-a {
+a{
 	color: #990000;
 	font-weight: bold;
 	text-decoration: none;
