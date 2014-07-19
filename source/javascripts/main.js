@@ -127,7 +127,14 @@
             mapHeight = map.getHeight(),
             newHeight = mapHeight + diffHeight - VERTICAL_ADJUST;
 
-        //console.log( "resizeHandler, newHeight = ", newHeight);
+        /*
+        console.log( "resizeHandler, ",
+                     "viewPortHeight = ", viewPortHeight,
+                     "bodyHeight = ", bodyHeight,
+                     "diffHeight = ", diffHeight,
+                     "mapHeight = ", mapHeight,
+                     "newHeight = ", newHeight);
+        */
 
         window.b5map.resize( undefined, newHeight);
         window.b5map.updateSize();
@@ -142,10 +149,18 @@
     // ----------------------------------------------------------------------------
     Event.observe( window, "load", function() {
       createMap();
-      //disableTools();
-      addOSMBidegorris();
-      addB5MBidegorris();
       //initResizeHandler();
+      //disableTools();
+
+      addOSMBidegorris();
+      //addB5MBidegorris();
+
+      /*
+      ( function() {
+        addOSMBidegorris();
+        addB5MBidegorris();
+      }).delay( 10);
+      */
 
       if( isLocalMode()) {
         window.b5map.addControl( new OpenLayers.Control.LayerSwitcher());
