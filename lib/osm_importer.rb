@@ -105,7 +105,7 @@ end
 
 def convert_bardulia_bidegorris_to_gml
   action_message( "Convirtiendo bidegorris a GML desde #{OSM_BARDULIA_BIDEGORRIS_FILE}")
-  execute_command( "cat #{OSM_BARDULIA_BIDEGORRIS_FILE} | ./osm2gml.py > ../web/gml_osm/bardulia-bidegorriak.gml")
+  execute_command( "cat #{OSM_BARDULIA_BIDEGORRIS_FILE} | ./osm2gml.py > ../source/gml_osm/bardulia-bidegorriak.gml")
 end
 
 # -------------------------------------------------------------------------------------------------------------------------
