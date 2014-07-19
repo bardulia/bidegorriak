@@ -153,7 +153,7 @@
       //disableTools();
 
       addOSMBidegorris();
-      //addB5MBidegorris();
+      //addB5MBidegorris();   // *toDO* falla en Chrome
 
       /*
       ( function() {
