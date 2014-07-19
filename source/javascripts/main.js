@@ -68,7 +68,7 @@
 
     // -- OSM ---------------------------------------------------------------------
     function addOSMBidegorris() {
-      addGML( "OSM", "gml_osm/bardulia-bidegorriak.gml");
+      addGML( "OSM", "gml_osm/bardulia-bidegorriak.gml", new OpenLayers.Projection( "EPSG:4326"));
     }
 
     // ----------------------------------------------------------------------------
@@ -83,15 +83,12 @@
       });
     }
 
-    function addGML( title, path) {
+    function addGML( title, path, projection) {
       var gmlLayer = new OpenLayers.Layer.Vector( "GML " + title, {
-        projection: new OpenLayers.Projection( "EPSG:4326"),
+        projection: projection,   // si no se pasa el parámetro projection entonces será undefined
         protocol: new OpenLayers.Protocol.HTTP({
             url: path,
-            format: new OpenLayers.Format.KML( {
-              extractStyles: true, 
-              extractAttributes: true
-            })
+            format: new OpenLayers.Format.GML()
         }),
         strategies: [new OpenLayers.Strategy.Fixed()]
       });
@@ -147,8 +144,8 @@
       createMap();
       //disableTools();
       addOSMBidegorris();
-      //addB5MBidegorris();
-      initResizeHandler();
+      addB5MBidegorris();
+      //initResizeHandler();
 
       if( isLocalMode()) {
         window.b5map.addControl( new OpenLayers.Control.LayerSwitcher());
